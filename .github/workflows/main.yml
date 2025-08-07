@@ -1,13 +1,13 @@
 name: React-S3-Test CD(Continuous Deploy)
-
- on:
+on:
    push:
      branches:
        - main
- env:
+ 
+env:
   DOCKER_IMAGE: ghcr.io/${{ github.actor }}/react-s3-experiment:latest
 
- jobs:
+jobs:
    build:
      name: build-app
      runs-on: ubuntu-latest
@@ -26,7 +26,6 @@ name: React-S3-Test CD(Continuous Deploy)
            docker buildx build --platform linux/amd64,linux/arm64 \
               -t ${{ env.DOCKER_IMAGE }} --push .
            docker logout
-
 
    deploy:
       name: Depoly to Production
