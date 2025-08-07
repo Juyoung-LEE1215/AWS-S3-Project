@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  react-s3-experiment:
+    image: ghcr.io/${GITHUB_ACTOR}/react-s3-experiment:latest
+    container_name: react-s3-experiment-container
+    ports:
+      - "3000:80"
+    restart: always
